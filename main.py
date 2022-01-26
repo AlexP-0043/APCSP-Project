@@ -14,12 +14,12 @@ dashes = print('_' * len(hidden_word))
 guess = get_guess()
 dashes = update_dashes(hidden_word, dashes, guess)
 while (triesleft != 0):
-if guess in hidden_word and guess not in guessed:
-  print(f'Letter: {guess}, is in the word.')
-  guessed.append(guess)
-elif guess in guessed:
-  print('You have already inputed this letter')
-elif guess not in hidden_word and guess not in guessed:
-  print(f'Letter: {guess}, is not in the word')
-  triesleft -= 1
+  if guess in hidden_word and guess not in guessed:
+    print(f'Letter: {guess}, is in the word.')
+    guessed.append(guess)
+  elif guess in guessed:
+    print('You have already inputed this letter')
+  elif guess not in hidden_word and guess not in guessed:
+    print(f'Letter: {guess}, is not in the word')
+    triesleft -= 1
 #  print(f'You have {triesleft}, tries to complete the word.')
