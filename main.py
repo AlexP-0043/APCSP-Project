@@ -10,10 +10,9 @@ hidden_word = r.choice(wordlist)
 guessed = []
 triesleft = len(hidden_word)
 dashes = print('_' * len(hidden_word))
-
-guess = get_guess()
-dashes = update_dashes(hidden_word, dashes, guess)
 while (triesleft != 0):
+  guess = get_guess()
+  dashes = update_dashes(hidden_word, dashes, guess)
   if guess in hidden_word and guess not in guessed:
     print(f'Letter: {guess}, is in the word.')
     guessed.append(guess)
