@@ -1,14 +1,5 @@
 def get_guess():
-  while True:
-    guess = input("Guess: ").lower()
-    if len(guess) > 1:
-      print('Only enter one character!')
-      guess = input("Guess: ").lower()
-    elif len(guess) < 1:
-      print('Please enter a letter!')
-      guess = input("Guess: ").lower()
-    else:
-      break
+  guess = input("Guess: ").lower()
   return(guess)
 
 def update_dashes(word, dashes, guess):
