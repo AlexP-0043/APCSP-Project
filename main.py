@@ -7,6 +7,7 @@ BOLD = "\033[1m"
 NORMAL = "\u001b[0m"
 wordlist = ['apple','banana','orange','yellow','word','tree','red','easy','medium','computer','science','mathematics','console','difficult','word','kill','treehouse','computer','python','code','alphabet','default','skill','list','guess','progessive','english','spanish','college','school','university']
 guessed = []
+
 def clear():
   call("clear" if name == "posix" else "cls", shell=True)
 def guessing_game(word):   
@@ -27,7 +28,11 @@ def guessing_game(word):
       clear()
       print('You have failed to guess the word')
       print(f'The word was "{word}".')
+      pa = input('Would you like to play again? ').lower()
+      if pa == 'yes' or 'y':
+        playagain()
       break
+      
     elif user_input in guessed:
       clear()
       print(f'You have already entered {user_input}')
@@ -43,6 +48,13 @@ def guessing_game(word):
       clear()
       print(f'You found the word! The word was "{hidden_word}".')
       print(f'With {tries} attempts to complete the word.')
+      pa = input('Would you like to play again? ').lower()
+      if pa == 'yes' or 'y':
+        playagain()
+      break
 def find(s, ch):
     return [i for i, letter in enumerate(s) if letter == ch]
+def playagain():
+  clear()
+  guessing_game(r.choice(wordlist))
 guessing_game(r.choice(wordlist))
