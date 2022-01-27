@@ -1,16 +1,12 @@
 import random as r
 from subprocess import call
 from os import name
-#Imports
 RED = "\u001b[31;1m"
 GREEN = "\u001b[32;1m"
 BOLD = "\033[1m"
 NORMAL = "\u001b[0m"
-#text stuff
 wordlist = ['apple','banana','orange','yellow','word','tree','red','easy','medium','computer','science','mathematics','console','difficult','word','kill','treehouse','computer','python','code','alphabet','default','skill','list','guess','progessive','english','spanish','college','school','university']
-#lists
 guessed = []
-#variables
 def clear():
   call("clear" if name == "posix" else "cls", shell=True)
 def guessing_game(word):   
@@ -49,6 +45,4 @@ def guessing_game(word):
       print(f'With {tries} attempts to complete the word.')
 def find(s, ch):
     return [i for i, letter in enumerate(s) if letter == ch]
-
 guessing_game(r.choice(wordlist))
-
