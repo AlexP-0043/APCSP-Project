@@ -9,43 +9,48 @@ NORMAL = "\u001b[0m"
 #text stuff
 wordlist = ['apple','banana','orange','yellow','word','tree','red','easy','medium','computer','science','mathematics','console','difficult','word','kill','treehouse','computer','python','code','alphabet','default','skill','list','guess','progessive','english','spanish','college','school','university']
 #lists
-hidden_word = r.choice(wordlist)
 guessed = []
-tries = len(hidden_word)
+
 #variables
 
 def clear():
   call("clear" if name == "posix" else "cls", shell=True)
 def guessing_game(word):   
-    hidden_word = "-" * len(word)
-    print("This is the hidden word " + hidden_word)
-    while(hidden_word != word and tries > 0):
-        user_input = input("Guess a letter: ")
-        if user_input in word and not guessed:
-            occurences = find(word, user_input)
-            for index in occurences:
-                hidden_word = hidden_word[:index] + user_input + hidden_word[index + 1:]
-                clear()
-                print(f'Letter: {user_input}, is {GREEN}in{NORMAL} the word.')
-                #guessed.append(user_input)
-            print(hidden_word)
-        elif user_input in guessed:
-          clear()
-          print(hidden_word)
-          print(f'You have {tries} attempts to complete the word.')
-          print(f'You have already entered {user_input}')
-        else:
-            clear()
-            print(f'Letter: {user_input}, is {RED}not{NORMAL} in the word.')
-            print(f'You have {tries} attempts to complete the word.')
-            print(hidden_word)
-            tries -1
+  tries = len(word)
+  hidden_word = "-" * len(word)
+  print("This is the hidden word " + hidden_word)
+  while(hidden_word != word):
+    user_input = input("Guess a letter: ")
+    if user_input in word and not guessed:
+      occurences = find(word, user_input)
+      for index in occurences:
+        hidden_word = hidden_word[:index] + user_input + hidden_word[index + 1:]
+        clear()
+        print(f'Letter: {user_input}, is {GREEN}in{NORMAL} the word.')
+        #guessed.append(user_input)
+        print(hidden_word)
+    elif (tries == 0):
+      clear()
+      print('You have failed to guess the word')
+      print(f'The word was "{word}".')
+      break
+    elif user_input in guessed:
+      clear()
+      print(hidden_word)
+      print(f'You have {tries} attempts to complete the word.')
+      print(f'You have already entered {user_input}')
+    else:
+      clear()
+      print(f'Letter: {user_input}, is {RED}not{NORMAL} in the word.')
+      print(f'You have {tries} attempts to complete the word.')
+      print(hidden_word)
+      tries -= 1
     if hidden_word == word:
       clear()
       print(f'You found the word! The word was "{hidden_word}".')
       print(f'With {tries} attempts to complete the word.')
 def find(s, ch):
     return [i for i, letter in enumerate(s) if letter == ch]
-#functions
+
 guessing_game(r.choice(wordlist))
 
