@@ -10,9 +10,7 @@ NORMAL = "\u001b[0m"
 wordlist = ['apple','banana','orange','yellow','word','tree','red','easy','medium','computer','science','mathematics','console','difficult','word','kill','treehouse','computer','python','code','alphabet','default','skill','list','guess','progessive','english','spanish','college','school','university']
 #lists
 guessed = []
-
 #variables
-
 def clear():
   call("clear" if name == "posix" else "cls", shell=True)
 def guessing_game(word):   
@@ -27,7 +25,7 @@ def guessing_game(word):
         hidden_word = hidden_word[:index] + user_input + hidden_word[index + 1:]
         clear()
         print(f'Letter: {user_input}, is {GREEN}in{NORMAL} the word.')
-        #guessed.append(user_input)
+        guessed.append(user_input)
         print(hidden_word)
     elif (tries == 0):
       clear()
@@ -36,9 +34,9 @@ def guessing_game(word):
       break
     elif user_input in guessed:
       clear()
-      print(hidden_word)
-      print(f'You have {tries} attempts to complete the word.')
       print(f'You have already entered {user_input}')
+      print(f'You have {tries} attempts to complete the word.')
+      print(hidden_word)
     else:
       clear()
       print(f'Letter: {user_input}, is {RED}not{NORMAL} in the word.')
