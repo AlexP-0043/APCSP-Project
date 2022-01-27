@@ -31,7 +31,8 @@ def guessing_game(word):
       pa = input('Would you like to play again? ').lower()
       if pa == 'yes' or 'y':
         playagain()
-      break
+      else:
+        break
       
     elif user_input in guessed:
       clear()
@@ -51,7 +52,8 @@ def guessing_game(word):
       pa = input('Would you like to play again? ').lower()
       if pa == 'yes' or 'y':
         playagain()
-      break
+      else:
+        break
 def find(s, ch):
     return [i for i, letter in enumerate(s) if letter == ch]
 def playagain():
