@@ -51,7 +51,7 @@ def guessing_game(word):
         tries -= 1
     if hidden_word == word or user_input == word:
       clear()
-      print(f'You found the word! The word was "{hidden_word}".')
+      print(f'You found the word! The word was "{word}".')
       print(f'With {tries} attempts to complete the word.')
 def find(s, ch):
     return [i for i, letter in enumerate(s) if letter == ch]
