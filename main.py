@@ -10,7 +10,7 @@ def guessing_game(word):
   while(hidden_word != word):
     user_input = input("Guess a letter: ")
     
-    if user_input in word and not guessed:
+    if (user_input in word and not guessed):
       occurences = find(word, user_input)
       for index in occurences:
         hidden_word = hidden_word[:index] + user_input + hidden_word[index + 1:]
@@ -34,7 +34,7 @@ def guessing_game(word):
       print(f'Guessed letters: {guessed}.')
       tries -= 1
 
-    elif hidden_word == word:
+    elif (hidden_word == word):
       print(f'You found the word! The word was "{hidden_word}".')
       print(f'With {tries} attempts to complete the word.')
 
