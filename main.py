@@ -3,8 +3,10 @@ wordlist = ['apple','banana','orange','yellow','word','tree','red','easy','mediu
 templist = ['hello', 'goodbye']
 guessed = []
 print('''
-Welcome to the guessing game!
+Welcome to the Guessing Game!
+
 Instructions: Only enter one letter per guess, don't enter symbols or fancy letters, and don't cheat.
+
 Created by: Alexander Prechtel
 ''')
 def guessing_game(word):   
@@ -13,11 +15,15 @@ def guessing_game(word):
   print("This is the hidden word " + hidden_word)
   while(hidden_word != word):
     user_input = input("Guess a letter: ")
-    if (tries == 0):
+    if (tries < 0):
       print('\n')
       print('You have failed to guess the word')
       print(f'The word was "{word}".')
       break
+    if (user_input in guessed):
+      print('\n')
+      print(f'You have already guessed {user_input}.')
+      print(f'Guessed letters: {guessed}.')
     if (user_input in word):
       occurences = find(word, user_input)
       for index in occurences:
@@ -44,5 +50,5 @@ def guessing_game(word):
 def find(s, ch):
     return [i for i, letter in enumerate(s) if letter == ch]
 
-guessing_game(r.choice(templist))
+guessing_game(r.choice(wordlist))
 
