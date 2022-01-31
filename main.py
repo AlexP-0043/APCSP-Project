@@ -20,14 +20,13 @@ def guessing_game(word):
         print(hidden_word)
         print(f'Guessed letters: {guessed}.')
 
-    if (tries == 0):
-      print('\n')
+    elif (tries == 0):
       print('You have failed to guess the word')
       print(f'The word was "{word}".')
       break
     
-    if (user_input not in word):
-      print('\n')
+    elif (user_input not in word):
+
       print(f'Letter: {user_input}, is not in the word.')
       print(f'You have {tries} attempts to complete the word.')
       print(hidden_word)
@@ -35,8 +34,7 @@ def guessing_game(word):
       print(f'Guessed letters: {guessed}.')
       tries -= 1
 
-    if hidden_word == word:
-      print('\n')
+    elif hidden_word == word:
       print(f'You found the word! The word was "{hidden_word}".')
       print(f'With {tries} attempts to complete the word.')
 
