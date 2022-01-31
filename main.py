@@ -15,10 +15,7 @@ def guessing_game(word):
       print(f'The word was "{word}".')
       break
 
-    if (hidden_word == word):
-      print('\n')
-      print(f'You found the word! The word was "{hidden_word}".')
-      print(f'With {tries} attempts to complete the word.')
+    
 
     if (user_input in word):
       occurences = find(word, user_input)
@@ -39,7 +36,10 @@ def guessing_game(word):
       print(f'Guessed letters: {guessed}.')
       tries -= 1
 
-    
+    if (hidden_word == word):
+      print('\n')
+      print(f'You found the word! The word was "{hidden_word}".')
+      print(f'With {tries} attempts to complete the word.')
 def find(s, ch):
     return [i for i, letter in enumerate(s) if letter == ch]
 
