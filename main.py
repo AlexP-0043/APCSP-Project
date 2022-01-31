@@ -2,7 +2,11 @@ import random as r
 wordlist = ['apple','banana','orange','yellow','word','tree','red','easy','medium','computer','science','mathematics','console','difficult','word','kill','treehouse','computer','python','code','alphabet','default','skill','list','guess','progessive','english','spanish','college','school','university']
 templist = ['hello', 'goodbye']
 guessed = []
-
+print('''
+Welcome to the guessing game!
+Instructions: Only enter one letter per guess, don't enter symbols or fancy letters, and don't cheat.
+Created by: Alexander Prechtel
+''')
 def guessing_game(word):   
   tries = len(word)
   hidden_word = "-" * len(word)
@@ -14,9 +18,6 @@ def guessing_game(word):
       print('You have failed to guess the word')
       print(f'The word was "{word}".')
       break
-
-    
-
     if (user_input in word):
       occurences = find(word, user_input)
       for index in occurences:
