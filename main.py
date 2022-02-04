@@ -10,7 +10,7 @@ Instructions: Only enter one letter per guess, don't enter symbols or fancy lett
 Created by: Alexander Prechtel
 ''')
 def guessing_game(word):   
-  tries = len(word)
+  tries = len(word) * 2
   hidden_word = "-" * len(word)
   print("This is the hidden word " + hidden_word)
   while(hidden_word != word):
