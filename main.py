@@ -6,8 +6,6 @@ print('''
 Welcome to the Guessing Game!
 
 Instructions: Only enter one letter per guess, don't enter symbols or fancy letters, and don't cheat.
-
-Created by: Alexander Prechtel
 ''')
 def guessing_game(word):   
   tries = len(word) * 2
@@ -20,7 +18,7 @@ def guessing_game(word):
       print('You have failed to guess the word')
       print(f'The word was "{word}".')
       break
-    if (user_input in guessed):
+    elif (user_input in guessed):
       print('\n')
       print(f'You have already guessed {user_input}.')
       print(f'Guessed letters: {guessed}.')
@@ -35,13 +33,16 @@ def guessing_game(word):
         print(f'Guessed letters: {guessed}.')
 
     else:
-      print('\n')
-      print(f'Letter: {user_input}, is not in the word.')
-      print(f'You have {tries} attempts to complete the word.')
-      print(hidden_word)
-      guessed.append(user_input)
-      print(f'Guessed letters: {guessed}.')
-      tries -= 1
+        if (user_input in guessed):
+            print('') # prevents another wrong from previously guessed
+        else:
+          print('\n')
+          print(f'Letter: {user_input}, is not in the word.')
+          print(f'You have {tries} attempts to complete the word.')
+          print(hidden_word)
+          guessed.append(user_input)
+          print(f'Guessed letters: {guessed}.')
+          tries -= 1
 
     if (hidden_word == word):
       print('\n')
