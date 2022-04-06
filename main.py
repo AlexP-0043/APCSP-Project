@@ -1,6 +1,5 @@
 import random as r
 wordlist = ['apple','banana','orange','yellow','word','tree','red','easy','medium','computer','science','mathematics','console','difficult','word','kill','treehouse','computer','python','code','alphabet','default','skill','list','guess','progessive','english','spanish','college','school','university']
-templist = ['hello', 'goodbye']
 guessed = []
 print('''
 Welcome to the Guessing Game!
