@@ -1,3 +1,5 @@
+# Resource: https://replit.com/@Breme-Gang/Guess-the-word-D?v=1
+# Resource 2: https://stackoverflow.com/questions/61964490/how-to-replace-dash-with-letter-hangman
 import random as r
 wordlist = ['apple','banana','orange','yellow','word','tree','red','easy','medium','computer','science','mathematics','console','difficult','word','kill','treehouse','computer','python','code','alphabet','default','skill','list','guess','progessive','english','spanish','college','school','university']
 guessed = []
