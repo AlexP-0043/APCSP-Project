@@ -22,8 +22,8 @@ def guessing_game(word):
       print(f'You have already guessed {user_input}.')
       print(f'Guessed letters: {guessed}.')
     if (user_input in word):
-      occurences = find(word, user_input)
-      for index in occurences:
+      occurs = find(word, user_input)
+      for index in occurs:
         hidden_word = hidden_word[:index] + user_input + hidden_word[index + 1:]
         print('\n')
         print(f'Letter: {user_input}, is in the word.')
@@ -46,7 +46,7 @@ def guessing_game(word):
     if (hidden_word == word):
       print('\n')
       print(f'You found the word! The word was "{hidden_word}".')
-      print(f'With {tries} attempts to complete the word.')
+      print(f'With {tries} attempts left to complete the word.')
 def find(s, ch):
     return [i for i, letter in enumerate(s) if letter == ch]
 
